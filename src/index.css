@@ -1,0 +1,26 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
+  }
+  form::before {
+    box-shadow: inset 0 0 0 3000px rgba(150, 150, 150, 0.192);
+  }
+  form h1 {
+    @apply text-center mb-10 text-3xl font-bold text-white;
+  }
+  form label {
+    @apply text-lg;
+  }
+  form input {
+    @apply bg-transparent border-b-2 border-black/50 placeholder:text-white/80 py-2 focus:outline-none text-lg text-white;
+  }
+  
+}
