@@ -34,12 +34,14 @@ function App() {
       return { ...prev, ...data };
     });
   };
+
   const { steps, step, currentStep, next, back, isFirstStep, isLastStep } =
     useMultistepsForm([
       <UserFrom {...data} updateData={updateData} />,
       <AddressFrom {...data} updateData={updateData} />,
       <AccountFrom {...data} updateData={updateData} />,
     ]);
+
   return (
     <form
       className="relative max-w-md w-full px-16 py-8 mx-auto bg-white/20 backdrop-blur-md rounded-md shadow-md"
@@ -49,6 +51,9 @@ function App() {
         window.alert("Account Created");
       }}
     >
+      <div className="flex justify-end text-white text-lg font-semibold mb-2">
+        {currentStep + 1} / {steps.length}
+      </div>
       {step}
       <div className="flex justify-between">
         {!isFirstStep ? (
@@ -56,7 +61,7 @@ function App() {
             type="button"
             className="text-xl text-white my-4 font-semibold"
             onClick={(e) => {
-              e.preventDefault()
+              e.preventDefault();
               back();
             }}
           >
